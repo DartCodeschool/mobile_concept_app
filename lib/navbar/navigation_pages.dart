@@ -14,37 +14,49 @@ class Navigation_Bar extends StatefulWidget {
 class _Navigation_BarState extends State<Navigation_Bar> {
   int index = 0;
 
-  final lists = [
+  final lists = const [
     Profile_menu(),
     collaction_kontakte(),
     konversationen_page(),
-    Container(color: Colors.yellow,),
-    Container(color: Colors.orange,),
+    Profile_menu(),
+    Profile_menu(),
   ];
   @override
   Widget build(BuildContext context) {
     return 
       Scaffold(
-        backgroundColor: Color(0xFFE5E5E5),
+        backgroundColor: const Color(0xFFE5E5E5),
         body: lists[index],
-        bottomNavigationBar: ClipRRect(
-          borderRadius: 
-        const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+        bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 6,
+                spreadRadius: 1,
+              ),
+            ],
           ),
-          child: GNav(
-            selectedIndex: index,
-            onTabChange: (index) => setState(() => this.index = index),
-            activeColor: const Color(0xFF666C79),
-            backgroundColor: const Color(0xFFFFFFFF),
-            tabs: const [
-            GButton(icon: Icons.home, iconColor: Color(0xFFABB2C0),),
-            GButton(icon: Icons.group, iconColor: Color(0xFFABB2C0),),
-            GButton(icon: Icons.forum, iconColor: Color(0xFFABB2C0),),
-            GButton(icon: Icons.public, iconColor: Color(0xFFABB2C0),),
-            GButton(icon: Icons.settings, iconColor: Color(0xFFABB2C0),),
-          ]),
+          child: ClipRRect(
+            borderRadius: 
+          const BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+            child: GNav(
+              selectedIndex: index,
+              onTabChange: (index) => setState(() => this.index = index),
+              activeColor: const Color(0xFF666C79),
+              backgroundColor: const Color(0xFFFFFFFF),
+              tabs: const [
+              GButton(icon: Icons.home, iconColor: Color(0xFFABB2C0),),
+              GButton(icon: Icons.group, iconColor: Color(0xFFABB2C0),),
+              GButton(icon: Icons.forum, iconColor: Color(0xFFABB2C0),),
+              GButton(icon: Icons.public, iconColor: Color(0xFFABB2C0),),
+              GButton(icon: Icons.settings, iconColor: Color(0xFFABB2C0),),
+            ]),
+          ),
         ),
       );
   }

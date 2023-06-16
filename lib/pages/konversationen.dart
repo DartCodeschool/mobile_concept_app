@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_concept_app/class/classes.dart';
 import 'package:mobile_concept_app/class/map.dart';
+import 'package:mobile_concept_app/pages/chat_menu.dart';
 
 class konversationen_page extends StatelessWidget {
   const konversationen_page({super.key});
+
+
   @override
   Widget build(BuildContext context) {
+
+    
+
     return Column(
       children: [
         const SizedBox(height: 46.0,),
@@ -51,6 +57,21 @@ class chat_seperator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void next_page (BuildContext context, String image, String title) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return Chat_menu(title: image, avatar: title);
+    }));
+  }
+
+    List full =[];
+    kontakts.forEach((key, value) {
+      full.add(Chat_menu(
+        title: value["image"], 
+        avatar: value["title"]));
+    },);
+
+
     List database = [];
 
     kontakts.forEach((key, value) {
@@ -66,9 +87,9 @@ class chat_seperator extends StatelessWidget {
       itemCount: database.length,
       itemBuilder: (context, index) {
         return ListTile(
-          onTap: () {
-            
-          },
+          
+          onTap: () => next_page(context, full[index].avatar, full[index].title),
+
           leading: Image.asset(database[index].image, height: 60, fit: BoxFit.fill,),
           title: Text(database[index].title, style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Color(0xFF36383D)),),
           subtitle: Text(database[index].subtitle, style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),),
