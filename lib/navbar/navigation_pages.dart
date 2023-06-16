@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_concept_app/pages/kontakt_menu.dart';
+import 'package:mobile_concept_app/pages/home_page.dart';
+import 'package:mobile_concept_app/pages/konversationen.dart';
 
 class Navigation_Bar extends StatefulWidget {
   const Navigation_Bar({super.key});
@@ -13,9 +15,9 @@ class _Navigation_BarState extends State<Navigation_Bar> {
   int index = 0;
 
   final lists = [
-    Container(color: Colors.blue,),
+    Profile_menu(),
     collaction_kontakte(),
-    Container(color: Colors.green,),
+    konversationen_page(),
     Container(color: Colors.yellow,),
     Container(color: Colors.orange,),
   ];
@@ -23,6 +25,7 @@ class _Navigation_BarState extends State<Navigation_Bar> {
   Widget build(BuildContext context) {
     return 
       Scaffold(
+        backgroundColor: Color(0xFFE5E5E5),
         body: lists[index],
         bottomNavigationBar: ClipRRect(
           borderRadius: 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_concept_app/class/people.dart';
-import 'package:mobile_concept_app/class/person.dart';
+import 'package:mobile_concept_app/class/map.dart';
+import 'package:mobile_concept_app/class/classes.dart';
 
 class collaction_kontakte extends StatelessWidget {
   const collaction_kontakte({super.key});
@@ -56,7 +56,6 @@ class Kontakt_seprator extends StatelessWidget {
     kontakts.forEach((key, value) { 
       kontakt.add(person(
         title: value["title"], 
-        subtitle: value["subtitle"], 
         image: value["image"]));
     });
        return ListView.builder(
@@ -65,7 +64,7 @@ class Kontakt_seprator extends StatelessWidget {
           return ListTile(
             leading: Image.asset(kontakt[index].image, height: 60, fit: BoxFit.fill,),
             title: Text(kontakt[index].title, style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Color(0xFF36383D)),),
-            subtitle: Text(kontakt[index].subtitle, style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),),
+            subtitle: const Text('123 456 789', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),),
             trailing: Container(
               width: 80,
               child: Row(
