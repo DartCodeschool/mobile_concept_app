@@ -9,37 +9,54 @@ class collaction_kontakte extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-       const SizedBox(height: 50.0,),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        const SizedBox(
+          height: 50.0,
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0),
           child: Row(
-            children: const [
+            children: [
               Icon(Icons.menu),
-              SizedBox(width: 120.0,),
+              SizedBox(
+                width: 120.0,
+              ),
               Text('Kontakte', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700, color: Color(0xFF000000))),
             ],
           ),
         ),
-        const  SizedBox(height: 15.0,),
+        const SizedBox(
+          height: 15.0,
+        ),
         Container(
-              margin: const EdgeInsets.only(bottom: 30),
-              width: 349,
-              height: 49,
-              decoration: BoxDecoration(
-                color:const Color(0xFFE7ECF6),
-                borderRadius: BorderRadius.circular(30),
+          margin: const EdgeInsets.only(bottom: 30),
+          width: 349,
+          height: 49,
+          decoration: BoxDecoration(
+            color: const Color(0xFFE7ECF6),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: const Row(
+            children: [
+              SizedBox(
+                width: 20.0,
               ),
-              child: Row(
-                children: const [
-                  SizedBox(width: 20.0,),
-                  Icon(Icons.search, color: Color(0xFFAEB5C5),),
-                  SizedBox(width: 12.0,),
-                  Text('Suche nach Kontakt', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFFAEB5C5)),),
-                ],
+              Icon(
+                Icons.search,
+                color: Color(0xFFAEB5C5),
               ),
-            ),
-          const  SizedBox(height: 610, child: 
-            Kontakt_seprator(),  
+              SizedBox(
+                width: 12.0,
+              ),
+              Text(
+                'Suche nach Kontakt',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFFAEB5C5)),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 610,
+          child: Kontakt_seprator(),
         ),
       ],
     );
@@ -51,27 +68,47 @@ class Kontakt_seprator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    List <person> kontakt = [];
-    kontakts.forEach((key, value) { 
-      kontakt.add(person(
-        title: value["title"], 
-        image: value["image"]));
+    List<person> kontakt = [];
+    kontakts.forEach((key, value) {
+      kontakt.add(person(title: value["title"], image: value["image"]));
     });
-       return ListView.builder(
+    return ListView.builder(
         itemCount: kontakt.length,
-        itemBuilder: (context, index){
+        itemBuilder: (context, index) {
           return ListTile(
-            leading: Image.asset(kontakt[index].image, height: 60, fit: BoxFit.fill,),
-            title: Text(kontakt[index].title, style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Color(0xFF36383D)),),
-            subtitle: const Text('123 456 789', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),),
+            leading: Image.asset(
+              kontakt[index].image,
+              height: 60,
+              fit: BoxFit.fill,
+            ),
+            title: Text(
+              kontakt[index].title,
+              style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Color(0xFF36383D)),
+            ),
+            subtitle: const Text(
+              '123 456 789',
+              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),
+            ),
             trailing: Container(
               width: 80,
               child: Row(
-                children: const [
-                  Icon(Icons.call, color: Color(0xFFABB2C0),),
-                  SizedBox(width: 15.0,),
-                  Icon(Icons.chat_bubble, color: Color(0xFFABB2C0),),
+                children: [
+                  const Icon(Icons.call, color: Color(0xFFABB2C0)),
+                  const SizedBox(width: 15.0),
+                  Stack(
+                    alignment: AlignmentDirectional.topEnd,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 2.0, right: 2.0),
+                        child: Icon(Icons.chat_bubble, color: Color(0xFFABB2C0)),
+                      ),
+                      Container(
+                        width: 9,
+                        height: 9,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: Colors.red),
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),

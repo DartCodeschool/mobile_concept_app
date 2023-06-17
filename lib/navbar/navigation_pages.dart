@@ -23,42 +23,51 @@ class _Navigation_BarState extends State<Navigation_Bar> {
   ];
   @override
   Widget build(BuildContext context) {
-    return 
-      Scaffold(
-        backgroundColor: const Color(0xFFE5E5E5),
-        body: lists[index],
-        bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6,
-                spreadRadius: 1,
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 245, 247, 251),
+      body: lists[index],
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)), boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6, spreadRadius: 1)]),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          child: GNav(
+            selectedIndex: index,
+            onTabChange: (index) {
+              print(index);
+              if (index > 0 && index < 3) {
+                setState(() => this.index = index);
+              }
+            },
+            activeColor: const Color(0xFF666C79),
+            backgroundColor: const Color(0xFFFFFFFF),
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                iconColor: Color(0xFFABB2C0),
+              ),
+              GButton(
+                icon: Icons.group,
+                iconColor: Color(0xFFABB2C0),
+              ),
+              GButton(
+                icon: Icons.forum,
+                iconColor: Color(0xFFABB2C0),
+              ),
+              GButton(
+                icon: Icons.public,
+                iconColor: Color(0xFFABB2C0),
+              ),
+              GButton(
+                icon: Icons.settings,
+                iconColor: Color(0xFFABB2C0),
               ),
             ],
           ),
-          child: ClipRRect(
-            borderRadius: 
-          const BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-            ),
-            child: GNav(
-              selectedIndex: index,
-              onTabChange: (index) => setState(() => this.index = index),
-              activeColor: const Color(0xFF666C79),
-              backgroundColor: const Color(0xFFFFFFFF),
-              tabs: const [
-              GButton(icon: Icons.home, iconColor: Color(0xFFABB2C0),),
-              GButton(icon: Icons.group, iconColor: Color(0xFFABB2C0),),
-              GButton(icon: Icons.forum, iconColor: Color(0xFFABB2C0),),
-              GButton(icon: Icons.public, iconColor: Color(0xFFABB2C0),),
-              GButton(icon: Icons.settings, iconColor: Color(0xFFABB2C0),),
-            ]),
-          ),
         ),
-      );
+      ),
+    );
   }
 }
-
