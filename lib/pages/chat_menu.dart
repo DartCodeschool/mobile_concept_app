@@ -66,11 +66,11 @@ class Chat_menu extends StatelessWidget {
   Widget secondperson () {
     return Padding(
       padding: const EdgeInsets.only(right: 20.0, top: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
                 padding: const EdgeInsets.all(8.0),
@@ -88,11 +88,13 @@ class Chat_menu extends StatelessWidget {
                   ],
                 ),
               ),
-              Image.asset(this.avatar, height: 45, fit: BoxFit.fill,),
+              const SizedBox(height: 6.0,),
+              const Text('13:37 Uhr',style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),),
+              
             ],
           ),
           const  SizedBox(height: 5.0,),
-          const Text('13:37 Uhr',style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),),
+          Image.asset(this.avatar, height: 45, fit: BoxFit.fill,),
         ],
       ),
     );
