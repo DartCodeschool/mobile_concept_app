@@ -50,7 +50,7 @@ class EnterText extends StatefulWidget {
 
 class _EnterTextState extends State<EnterText> {
   TextEditingController controllerFirstText = TextEditingController();
-  List writing = ['fhjjfk', 'hjkj'];
+  List writing = [];
 
   Widget card(BuildContext context, int index) {
     return Row(
