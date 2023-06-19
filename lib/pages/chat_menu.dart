@@ -9,76 +9,6 @@ class ChatMenu extends StatelessWidget {
     required this.avatar,
   });
 
-  Widget firstPerson() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20.0, top: 10.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Image.asset('images/lexsi.png', height: 45, fit: BoxFit.fill),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(color: Color(0xFFE2E9F6), borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15), bottomRight: Radius.circular(15))),
-                child: Row(
-                  children: const [
-                    Text('Ja mega gut. Danke dir.', style: TextStyle(fontSize: 14.4, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
-                    Icon(Icons.done_all),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 5.0),
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(color: Color(0xFFE2E9F6), borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), topRight: Radius.circular(15), bottomRight: Radius.circular(15))),
-                child: Row(
-                  children: const [
-                    Text('Alles klar!', style: TextStyle(fontSize: 14.4, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
-                    Icon(Icons.done_all),
-                  ],
-                ),
-              ),
-              const Text('13:37 Uhr', style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7))),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Widget secondPerson() {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(right: 20.0, top: 10.0),
-  //     child: Row(
-  //       mainAxisAlignment: MainAxisAlignment.end,
-  //       children: [
-  //         Column(
-  //           crossAxisAlignment: CrossAxisAlignment.end,
-  //           children: [
-  //             Container(
-  //               padding: const EdgeInsets.all(8.0),
-  //               decoration: const BoxDecoration(color: Color(0xFFDBFDD9), borderRadius: BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15), topRight: Radius.circular(15))),
-  //               child: Row(
-  //                 children: const [
-  //                   Icon(Icons.done_all),
-  //                   Text('Dann machen wir das so.', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
-  //                 ],
-  //               ),
-  //             ),
-  //             const SizedBox(height: 6.0),
-  //             const Text('13:37 Uhr', style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7))),
-  //           ],
-  //         ),
-  //         const SizedBox(height: 5.0),
-  //         Image.asset(avatar, height: 45, fit: BoxFit.fill),
-  //       ],
-  //     ),
-  //   );
-  // }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE5E5E5),
@@ -134,26 +64,14 @@ class _EnterTextState extends State<EnterText> {
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFE2E9F6),
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0), bottomRight: Radius.circular(15.0)),
-                  ),
-                  child: Text(
-                    writing[index],
-                    style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D)),
-                  ),
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: const BoxDecoration(color: Color(0xFFE2E9F6), borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0), bottomRight: Radius.circular(15.0))),
+                  child: Text(writing[index], style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
                 ),
-                Icon(
-                  Icons.done_all,
-                  color: Color(0xFF36383D),
-                )
+                const Icon(Icons.done_all, color: Color(0xFF36383D))
               ],
             ),
-            Text(
-              '13:37 Uhr',
-              style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),
-            ),
+            const Text('13:37 Uhr', style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7))),
           ],
         ),
       ],
@@ -174,7 +92,6 @@ class _EnterTextState extends State<EnterText> {
         writing.add(controllerFirstText.text);
         controllerFirstText.text = '';
       }
-      print(writing);
     });
   }
 
@@ -207,20 +124,20 @@ class _EnterTextState extends State<EnterText> {
                   Container(
                     width: 240.0,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(left: 10.0),
                       child: TextField(
                         controller: controllerFirstText,
                         autofocus: true,
-                        decoration: InputDecoration(border: InputBorder.none),
+                        decoration: const InputDecoration(border: InputBorder.none),
                       ),
                     ),
                   ),
-                  Icon(Icons.mood, color: Color(0xFFDCE3EF)),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 25.0, left: 10.0),
+                  const Icon(Icons.mood, color: Color(0xFFDCE3EF)),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 25.0, left: 10.0),
                     child: Icon(Icons.photo_library, color: Color(0xFFDCE3EF)),
                   ),
-                  IconButton(onPressed: func, icon: Icon(Icons.send, color: Color(0xFF36383D))),
+                  IconButton(onPressed: func, icon: const Icon(Icons.send, color: Color(0xFF36383D))),
                 ],
               ),
             ),
