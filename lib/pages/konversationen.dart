@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_concept_app/class/classes.dart';
-import 'package:mobile_concept_app/class/map.dart';
+import 'package:mobile_concept_app/modul/classes.dart';
+import 'package:mobile_concept_app/modul/map.dart';
 import 'package:mobile_concept_app/pages/chat_menu.dart';
 
-class konversationen_page extends StatelessWidget {
-  const konversationen_page({super.key});
+class KonversationPage extends StatelessWidget {
+  const KonversationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,48 +13,48 @@ class konversationen_page extends StatelessWidget {
         const SizedBox(
           height: 46.0,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Row(
-            children: [
+            children: const [
               Icon(Icons.menu),
               SizedBox(width: 91.0),
-              Text(
-                'Konversationen',
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700, color: Color(0xFF000000)),
-              ),
+              Text('Konversationen', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700, color: Color(0xFF000000))),
             ],
           ),
         ),
         const SizedBox(height: 15.0),
+
+        // starting search for contact
         Container(
-          margin: const EdgeInsets.only(bottom: 30),
-          width: 349,
-          height: 49,
-          decoration: BoxDecoration(color: const Color(0xFFE7ECF6), borderRadius: BorderRadius.circular(30)),
-          child: const Row(
-            children: [
-              SizedBox(width: 20.0),
-              Icon(Icons.search, color: Color(0xFFAEB5C5)),
-              SizedBox(width: 12.0),
-              Text('Suche nach Kontakt', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFFAEB5C5))),
-            ],
+          height: 49.0,
+          width: 344.0,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Color(0xFFE7ECF6)),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.0),
+            child: TextField(
+                decoration: InputDecoration(
+              icon: Icon(Icons.search, color: Color(0xFFAEB5C5)),
+              hintText: 'Suche nach Kontakt',
+              hintStyle: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w700, color: Color(0xFFAEB5C5)),
+              border: InputBorder.none,
+            )),
           ),
         ),
-        const Expanded(
-          child: chat_seperator(),
-        ),
+        //searching for contact is over
+
+        const Expanded(child: ChatSeparator()),
       ],
     );
   }
 }
 
-class chat_seperator extends StatelessWidget {
-  const chat_seperator({super.key});
+class ChatSeparator extends StatelessWidget {
+  const ChatSeparator({super.key});
 
   @override
   Widget build(BuildContext context) {
-    void next_page(BuildContext context, Chat_menu chat) {
+    void NextPage(BuildContext context, ChatMenu chat) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return chat;
       }));
@@ -63,7 +63,7 @@ class chat_seperator extends StatelessWidget {
     List full = [];
     kontakts.forEach(
       (key, value) {
-        full.add(Chat_menu(title: value["title"], avatar: value["image"]));
+        full.add(ChatMenu(title: value["title"], avatar: value["image"]));
       },
     );
 
@@ -82,7 +82,7 @@ class chat_seperator extends StatelessWidget {
         itemCount: database.length,
         itemBuilder: (context, index) {
           return ListTile(
-            onTap: () => next_page(context, full[index]),
+            onTap: () => NextPage(context, full[index]),
             leading: Image.asset(
               database[index].image,
               height: 60,
@@ -101,14 +101,8 @@ class chat_seperator extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    database[index].time,
-                    style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7)),
-                  ),
-                  Icon(
-                    check[index],
-                    color: const Color(0xFF36383D),
-                  ),
+                  Text(database[index].time, style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7))),
+                  Icon(check[index], color: const Color(0xFF36383D)),
                 ],
               ),
             ),

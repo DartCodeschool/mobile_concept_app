@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'navbar/navigation_pages.dart';
-void main () => runApp(MyApp());
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,9 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Navigation_Bar(),
+      home: NavigationPanels(),
     );
   }
 }
-
-

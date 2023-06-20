@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_concept_app/pages/kontakt_menu.dart';
-import 'package:mobile_concept_app/pages/home_page.dart';
+import 'package:mobile_concept_app/pages/kontakt_information.dart';
 import 'package:mobile_concept_app/pages/konversationen.dart';
 
-class Navigation_Bar extends StatefulWidget {
-  const Navigation_Bar({super.key});
+class NavigationPanels extends StatefulWidget {
+  const NavigationPanels({super.key});
 
   @override
-  State<Navigation_Bar> createState() => _Navigation_BarState();
+  State<NavigationPanels> createState() => _NavigationPanelsState();
 }
 
-class _Navigation_BarState extends State<Navigation_Bar> {
+class _NavigationPanelsState extends State<NavigationPanels> {
   int index = 0;
 
-  final lists = const [
-    Profile_menu(),
-    collaction_kontakte(),
-    konversationen_page(),
-    Profile_menu(),
-    Profile_menu(),
+  final lists = [
+    Container(),
+    KollektionKontakte(),
+    KonversationPage(),
+    Container(),
+    Container(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,6 @@ class _Navigation_BarState extends State<Navigation_Bar> {
           child: GNav(
             selectedIndex: index,
             onTabChange: (index) {
-              print(index);
               if (index > 0 && index < 3) {
                 setState(() => this.index = index);
               }
