@@ -11,6 +11,10 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: NavigationPanels(),
+      // routes: {
+      //   '/home': (context) => const NavigationPanels(),
+        
+      // },
     );
   }
 }

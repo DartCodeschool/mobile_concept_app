@@ -11,10 +11,10 @@ class KollektionKontakte extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 50.0),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0),
           child: Row(
-            children: const [
+            children: [
               Icon(Icons.menu),
               SizedBox(width: 120.0),
               Text('Kontakte', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700, color: Color(0xFF000000))),
@@ -28,7 +28,7 @@ class KollektionKontakte extends StatelessWidget {
         Container(
           height: 49.0,
           width: 344.0,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Color(0xFFE7ECF6)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: const Color(0xFFE7ECF6)),
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
             child: TextField(

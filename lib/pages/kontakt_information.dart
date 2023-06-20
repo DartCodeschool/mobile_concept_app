@@ -48,15 +48,15 @@ class KontaktInformation extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    Image.asset(photo, height: 183, fit: BoxFit.fill),
+                    Image.asset(photo, height: 183,fit: BoxFit.fill),
                     Text(text, style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600, color: Color(0xFF36383D))),
                     const Text('Hier steht mein Status.', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFFA2A9B7))),
                     const SizedBox(height: 20.0),
-                    Column(
+                    const Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(Icons.call, color: Color(0xFF36383D)),
                             SizedBox(width: 10.0),
                             Text('123 456 789', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
@@ -64,7 +64,7 @@ class KontaktInformation extends StatelessWidget {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(Icons.mail, color: Color(0xFF36383D)),
                             SizedBox(width: 10.0),
                             Text('senna@mail.ls', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),

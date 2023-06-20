@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_concept_app/pages/kontakt_menu.dart';
-import 'package:mobile_concept_app/pages/kontakt_information.dart';
 import 'package:mobile_concept_app/pages/konversationen.dart';
 
 class NavigationPanels extends StatefulWidget {
@@ -12,19 +11,19 @@ class NavigationPanels extends StatefulWidget {
 }
 
 class _NavigationPanelsState extends State<NavigationPanels> {
-  int index = 0;
+  int index = 1;
 
   final lists = [
     Container(),
-    KollektionKontakte(),
-    KonversationPage(),
+    const KollektionKontakte(),
+    const KonversationPage(),
     Container(),
     Container(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 245, 247, 251),
+      backgroundColor: const Color.fromARGB(255, 245, 247, 251),
       body: lists[index],
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)), boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6, spreadRadius: 1)]),

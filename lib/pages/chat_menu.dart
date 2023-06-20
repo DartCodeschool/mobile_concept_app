@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_concept_app/pages/konversationen.dart';
 
 class ChatMenu extends StatelessWidget {
   final String title;
   final String avatar;
   const ChatMenu({
+    super.key,
     required this.title,
     required this.avatar,
   });
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE5E5E5),
@@ -50,10 +51,12 @@ class EnterText extends StatefulWidget {
 
 class _EnterTextState extends State<EnterText> {
   TextEditingController controllerFirstText = TextEditingController();
-  List writing = [];
+  List user = [];
+  bool isSend = false;
 
   Widget card(BuildContext context, int index) {
     return Row(
+      mainAxisAlignment: user[index]['isSend'] ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.only(right: 8.0, left: 20.0, top: 17.0),
@@ -66,7 +69,7 @@ class _EnterTextState extends State<EnterText> {
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   decoration: const BoxDecoration(color: Color(0xFFE2E9F6), borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0), bottomRight: Radius.circular(15.0))),
-                  child: Text(writing[index], style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
+                  child: Text(user[index]['message'], style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Color(0xFF36383D))),
                 ),
                 const Icon(Icons.done_all, color: Color(0xFF36383D))
               ],
@@ -78,19 +81,18 @@ class _EnterTextState extends State<EnterText> {
     );
   }
 
-  Widget seperator(BuildContext context, int index) {
-    return Container(
-      child: Column(
-        children: [],
-      ),
-    );
-  }
-
   void func() {
     setState(() {
       if (controllerFirstText.text != '') {
-        writing.add(controllerFirstText.text);
-        controllerFirstText.text = '';
+        if (isSend) {
+          user.add({'message': controllerFirstText.text, 'isSend': true});
+          controllerFirstText.clear();
+          isSend = false;
+        } else {
+          user.add({'message': controllerFirstText.text, 'isSend': false});
+          controllerFirstText.clear();
+          isSend = true;
+        }
       }
     });
   }
@@ -101,8 +103,8 @@ class _EnterTextState extends State<EnterText> {
       children: [
         // the chat session has started
 
-        Expanded(child: ListView.separated(itemCount: writing.length, separatorBuilder: seperator, itemBuilder: card)),
-
+        // Expanded(child: ListView.separated(itemCount: user.length, separatorBuilder: seperator, itemBuilder: card)),
+        Expanded(child: ListView.builder(itemCount: user.length, itemBuilder: card)),
         // the chat session is over
 
         // the input part has started
@@ -121,7 +123,7 @@ class _EnterTextState extends State<EnterText> {
               ]),
               child: Row(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 240.0,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10.0),
