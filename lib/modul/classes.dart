@@ -1,24 +1,19 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
-class person {
+class Person {
   final String title;
   final String image;
 
-  person ({
+  Person({
     required this.title,
     required this.image,
   });
 }
 
-
-class chats {
+class Chats {
   final String title;
   final String image;
   final String subtitle;
   final String time;
-  chats ({
+  Chats({
     required this.image,
     required this.subtitle,
     required this.time,
