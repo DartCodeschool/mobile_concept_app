@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_concept_app/pages/kontakt_menu.dart';
-import 'package:mobile_concept_app/pages/kontakt_information.dart';
 import 'package:mobile_concept_app/pages/konversationen.dart';
 
 class NavigationPanels extends StatefulWidget {
@@ -12,12 +11,12 @@ class NavigationPanels extends StatefulWidget {
 }
 
 class _NavigationPanelsState extends State<NavigationPanels> {
-  int index = 0;
+  int index = 1;
 
   final lists = [
     Container(),
-    KollektionKontakte(),
-    KonversationPage(),
+    const KollektionKontakte(),
+    const KonversationPage(),
     Container(),
     Container(),
   ];
