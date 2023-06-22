@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'navbar/navigation_pages.dart';
+import 'package:mobile_concept_app/pages/chat_konversation.dart';
+import 'package:mobile_concept_app/pages/contact_information.dart';
+import 'package:mobile_concept_app/pages/contact_menu.dart';
+import 'package:mobile_concept_app/pages/konversation.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,13 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NavigationPanels(),
-      // routes: {
-      //   '/home': (context) => const NavigationPanels(),
-        
-      // },
+      initialRoute: '/contact',
+      routes: {
+        '/contact': (context) => const ContactMenu(),
+        '/contact-information': (context) => const ContactInformation(),
+        '/konversation': (context) => const Konversation(),
+        '/chat-konversation': (context) => const ChatKonversation(),
+      },
     );
   }
 }
